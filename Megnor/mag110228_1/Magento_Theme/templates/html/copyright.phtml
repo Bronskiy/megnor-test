@@ -1,0 +1,28 @@
+<?php
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<!-- <link rel="stylesheet" type="text/css" media="all" href="<?php //echo $this->getUrl()?>pub/media/theme/custom.css"> -->
+<small class="copyright">
+     
+	<span><?php /* @escapeNotVerified */ echo $block->getCopyright() ?></span>
+</small>
+
+<script type="text/javascript">
+	
+	require([
+	    'jquery',
+	    'domReady!'// wait for dom ready
+	], function ($) {
+		var newWindowWidth = $(window).width();
+		if(newWindowWidth < 768){
+			$( ".dropdown-toggle" ).click(function() {
+	        	$(this).parent('.dropdown').toggleClass('open').siblings().removeClass('open');
+	    	});
+		}
+
+	});
+
+</script>

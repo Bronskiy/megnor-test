@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <!--<referenceContainer name="content">
+            <container name="category.view.container" htmlTag="div" htmlClass="category-view" after="-">
+                <block class="Magento\Catalog\Block\Category\View" name="category.sub_categories" template="Magento_Catalog::category/sub_categories.phtml"/>
+            </container>
+        </referenceContainer>-->
+        <!--<referenceContainer name="sidebar.main" >
+            <block class="Megnor\Category\Block\Html\Topmega" name="catalog.top" template="Magento_Theme::html/Custommenu.phtml" ttl="3600" before="-"/>
+            <block class="Megnor\Category\Block\Html\Topmega" name="custom.mobile.menu" after="Header_toplinks" template="Magento_Theme::html/mobile_dropdown_menu.phtml"/>
+        </referenceContainer> -->
+        <move element="sidebar.additional" destination="sidebar.main" after="sidebar.main"/>
+        <move element="main" destination="columns" after="sidebar.main" />
+        <move element="columns.top" destination="content" before="category.products"/>
+        
+    </body>
+</page>

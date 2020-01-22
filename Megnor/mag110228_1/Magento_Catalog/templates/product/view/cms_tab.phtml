@@ -1,0 +1,23 @@
+<?php
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/**
+ * Product description template
+ *
+ * @var $block \Magento\Catalog\Block\Product\View\Description
+ */
+?>
+
+<?php 
+	$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+	$content =  $block->getProduct()->getDownloadsContent();
+	if(!empty($content)){
+		echo $downlaodContent = $objectManager->get('\Magento\Cms\Model\Template\FilterProvider')->getBlockFilter()->filter($content);
+	}
+?>
+<?php //echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('Custom Tab')->toHtml(); ?>

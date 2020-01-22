@@ -1,0 +1,64 @@
+<?php
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<div class="block newsletter">
+    <div class="footer_newsletter">
+        <?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('tm_newsletter_heading')->toHtml();?>
+        <div class="news-right">
+        <ul>
+        	<li>
+            	<div class="content">
+            		<form class="form subscribe"
+                        novalidate
+                        action="<?php /* @escapeNotVerified */ echo $block->getFormActionUrl() ?>"
+                        method="post"
+                        data-mage-init='{"validation": {"errorClass": "mage-error"}}'
+                        id="newsletter-validate-detail">
+                        <div class="field newsletter">
+                            <label class="label" for="newsletter"><span><?php /* @escapeNotVerified */ echo __('Sign Up for Our Newsletter:') ?></span></label>
+                            <div class="control">
+                                <input name="email" type="email" id="newsletter"
+                                            placeholder="<?php /* @escapeNotVerified */ echo __('Enter your email address') ?>"
+                                            data-validate="{required:true, 'validate-email':true}"/>
+                            </div>
+                        </div>
+                        <div class="actions">
+                            <button class="action subscribe primary" title="<?php /* @escapeNotVerified */ echo __('Subscribe') ?>" type="submit">
+                                <span><?php /* @escapeNotVerified */ echo __('Subscribe') ?></span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+        	</li>
+    	</ul>
+        </div>
+	</div>
+</div>
+<section class="newsletter">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-lg-7 text">
+                <p>SUBSCRIBE</p><span>Receive updates on new products, webinars, upcoming events, and more.</span>
+            </div>
+            <div class="col-xs-12 col-lg-5">
+                <form id="subForm" class="js-cm-form" action="https://www.createsend.com/t/subscribeerror?description=" method="post" data-id="30FEA77E7D0A9B8D7616376B90063231D2A618F0FC0F01C189E0372C5539C0CAE750127AB0676F2C48F0A1DE38A16F99B9C3201948A51E23C45FB6D9E67F4EBD">
+                    <input id="fieldName" name="cm-name" type="text" placeholder="Name" />
+                    <input id="fieldEmail" name="cm-zhkhud-zhkhud" type="email" class="js-cm-email-input" placeholder="Email"
+                    required />
+                    <div>
+                        <input id="listahlurt" name="cm-ol-ahlurt" type="checkbox" />
+                        <label for="listahlurt">Lombart Used Equipment - Weekly Notifications</label>
+                    </div>
+                    <button class="js-cm-submit-button" type="submit">Subscribe</button>
+                </form>
+                <script type="text/javascript" src="https://js.createsend1.com/javascript/copypastesubscribeformlogic.js"></script>
+            </div>
+        </div>
+    </div>
+</section>

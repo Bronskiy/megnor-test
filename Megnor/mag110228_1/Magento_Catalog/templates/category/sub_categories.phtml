@@ -1,0 +1,81 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/**
+ * Category view template
+ *
+ * @var $block \Magento\Catalog\Block\Category\View
+ */
+?>
+<?php
+
+    //$_helper    = $this->helper('Magento\Catalog\Helper\Output');
+    $_category1  = $block->getCurrentCategory();
+?>
+<?php 
+$_categories = $_category1->getCollection();
+$_categories->addAttributeToSelect('image')
+    ->addAttributeToSelect('name')
+    ->addAttributeToFilter('is_active', 1)
+    ->setOrder('name', 'ASC')
+    ->addIdFilter($_category1->getChildren());  
+    //var_dump($_categories);
+    
+    if($_category1->getParentCategory()->getName() != 'Services') {
+?>
+    <div class="category-title">
+        <h2><?php echo $block->escapeHtml($_category1->getName()); ?></h2>
+    </div>
+<?php
+    } else {
+?>
+    <div class="featureproduct-slider">
+        <div class="featureproduct-title">
+            <h2><?php echo $block->escapeHtml($_category1->getName()); ?></h2>
+        </div>
+    </div>
+    
+<?
+    }
+?>
+
+<div style="padding-bottom: 20px;display: inline-block; width: 100%">
+    
+
+<?php 
+    $categoryCount=1;
+    foreach ($_categories as $_category): ?>
+<?php  //echo $_category->getImageUrl(); ?>
+
+<?php //if($_category->getIsActive()): $categoryCount%4==0 && $categoryCount == 0 || && $categoryCount != 1?>
+<?php if( $categoryCount%4==1 ) { echo'<div class="row" style="padding: 20px 0;"> '; }?>
+
+    <div class="col-md-3" style="text-align: center;">
+        <a href="<?php echo $_category->getURL(); ?>" title="<?php //echo $this->htmlEscape($_category->getName()) ?>">
+            <div>
+                <img src="<?php  if($_category->getImageUrl()) { echo $_category->getImageUrl(); } else { echo '/pub/media/comingsoon.jpg';} ?>" alt="" title="" class="image" />
+            </div>
+            <div style="text-align: center;">
+                <?php echo $_category->getName(); ?>
+            </div>
+        </a>
+    </div>
+    
+<?php  if($categoryCount%4==0 ) { echo'</div>'; }?>
+
+
+<?php //endif; ?>
+<?php //echo $_category->getName(); ?>
+<?php //echo $_category->getURL(); ?>
+<?php 
+    $categoryCount++;
+    endforeach; 
+?>
+</div>
